@@ -9,8 +9,8 @@ EthernetClient client; // Initialize Arduino Ethernet Client
 
 // ThingSpeak constants
 byte postServer[]  = {184,106,153,149}; //ThingSpeak server IP
-String writeAPIKey = "P5GBZQT1VDK0Y6JN"; //Your channel's write key
-const int updateInterval = 10*1000; //Interval in milliseconds
+String writeAPIKey = "<WRITE API KEY>"; //Your channel's write key
+const int updateInterval = 15*1000; //Interval in milliseconds
 
 void setup() {
   Serial.begin(9600); //Start serial communication
@@ -26,7 +26,7 @@ void loop() {
   //Read the sensor value
   String Value0 = String(analogRead(A0), DEC);
   Serial.println(Value0);
-  Value0 = "field2="+Value0;
+  Value0 = "field1="+Value0;
   
   //POST the read data to the server
   POST(Value0);
