@@ -1,4 +1,3 @@
-
 /*
 POTEK PROGRAMA ARDUINO -> IFTTT
 -Razloži, da bomo z arduinom pushali notoifikejšne na mobi 
@@ -8,9 +7,7 @@ POTEK PROGRAMA ARDUINO -> IFTTT
 -Copy/Paste GETrequest funkcijo (razloži server, JSON, in kje vidimo kakšen format mormo narest - IFTTT)
 -Sestavimo funkcijo ki bo sestavila JSON
 -Pushamo notification ko pritisnemo tipko, senzor
-
 */
-
 
 #include <SPI.h>
 #include <Ethernet.h>
@@ -21,12 +18,10 @@ char server[] = "maker.ifttt.com";
 IPAddress ip(10, 0, 0, 99);
 EthernetClient client;
 
-long Time = 0;
-String IFTTTKey = "csB_0GMzOkFL2Fn7xvS7D3";
-String TriggerWord = "delavnice";
+String IFTTTKey = "<YOUR IFTTT KEY>";
+String TriggerWord = "<YOUR TRIGGER WORD>";
 
 void setup() {
-
   Serial.begin(9600);
 
   while (!Serial) {
@@ -38,18 +33,11 @@ void setup() {
     Ethernet.begin(mac, ip);
   }
 
-  Time = millis()+20000;
+  POSTrequest();
 }
 
 void loop() {
-  if(millis()-Time>20000){
-    Time = millis();
-    GETrequest();
-  }
-
-  while(true){;}
-
-
+  
 }
 
 String getJSON() {
@@ -64,10 +52,8 @@ String getJSON() {
   return json;
 }
 
-int GETrequest(){
-  delay(1000);
+int POSTrequest(){
   Serial.println("connecting...");
-
   
   if (client.connect(server, 80)) {
     Serial.println("connected");
@@ -81,12 +67,10 @@ int GETrequest(){
     client.println(json.length());
     client.println("Connection: close");
     client.println();
-    
     client.println(json);
     client.println();
 
   } else {
-  
     Serial.println("connection failed");
   }
   delay(500);
@@ -98,5 +82,4 @@ int GETrequest(){
 
   Serial.println("disconnecting.");
   client.stop();
-
 }
