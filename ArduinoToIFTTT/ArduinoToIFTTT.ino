@@ -1,14 +1,3 @@
-/*
-POTEK PROGRAMA ARDUINO -> IFTTT
--Razloži, da bomo z arduinom pushali notoifikejšne na mobi 
--Naredimo IFTTT account - primer pošlji email, dobi notification (pokaži primer z NASO)
--Najprej koncept blink without delay (nardiš primer z LED 13)
--Na roke napišeš incializacijo ethernet+IFTTT (vse kar je pred in v setupu)
--Copy/Paste GETrequest funkcijo (razloži server, JSON, in kje vidimo kakšen format mormo narest - IFTTT)
--Sestavimo funkcijo ki bo sestavila JSON
--Pushamo notification ko pritisnemo tipko, senzor
-*/
-
 #include <SPI.h>
 #include <Ethernet.h>
 
