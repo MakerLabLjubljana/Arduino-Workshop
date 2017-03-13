@@ -24,7 +24,7 @@ void setup() {
 
 void loop() {
   //Read the sensor value
-  String Value0 = String(analogRead(A0), DEC);
+  String Value0 = String(analogRead(A9));
   Serial.println(Value0);
   Value0 = "field1="+Value0;
   
