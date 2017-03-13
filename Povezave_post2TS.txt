@@ -1,5 +1,0 @@
-HTTP Headers:
-http://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039
-
-POST to TS:
-http://community.thingspeak.com/tutorials/arduino/using-an-arduino-ethernet-shield-to-update-a-thingspeak-channel/
